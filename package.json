@@ -9,6 +9,7 @@
   "dependencies": {
     "@types/react": "^16.3.13",
     "@types/react-native": "^0.55.12",
+    "axios": "^0.18.0",
     "react": "16.3.1",
     "react-native": "0.55.3",
     "react-native-typescript-transformer": "^1.2.5",
