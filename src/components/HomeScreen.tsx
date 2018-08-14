@@ -27,7 +27,6 @@ export default class HomeScreen extends React.Component<Props, State> {
       this.setState({ isLoading: true }, () => {
         getPopularMovieRequest(page)
           .then(response => {
-            console.log('DATA', response)
             const newData =
               page === 1
                 ? response.data.results
@@ -48,9 +47,17 @@ export default class HomeScreen extends React.Component<Props, State> {
   renderItem = ({ item }) => {
     return (
       <View style={styles.itemContainer}>
-        <Image source={{ uri: `https://image.tmdb.org/t/p/w185/${item.poster_path}` }} style={styles.itemImage} resizeMode={'cover'} />
+        <Image
+          source={{
+            uri: `https://image.tmdb.org/t/p/w185/${item.poster_path}`
+          }}
+          style={styles.itemImage}
+          resizeMode={'cover'}
+        />
         <View style={styles.itemContent}>
-          <Text style={styles.title} numberOfLines={1}>{item.title}</Text>
+          <Text style={styles.title} numberOfLines={1}>
+            {item.title}
+          </Text>
           <Text>{item.release_date}</Text>
           <Text style={styles.rating}>{`Rating: ${item.vote_average}`}</Text>
           <Text numberOfLines={3}>{item.overview}</Text>
@@ -81,22 +88,22 @@ const styles = StyleSheet.create({
     flex: 1,
     marginVertical: 8,
     marginHorizontal: 16,
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   itemImage: {
     width: 80,
-    height: 120,
+    height: 120
   },
   itemContent: {
     flex: 1,
-    marginHorizontal: 8,
+    marginHorizontal: 8
   },
   title: {
     marginBottom: 8,
     fontWeight: 'bold',
-    fontSize: 17,
+    fontSize: 17
   },
   rating: {
-    marginBottom: 8,
+    marginBottom: 8
   }
 })
